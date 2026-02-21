@@ -1,178 +1,177 @@
-# eBanking Trading Platform -- OOP Design Implementation
+# eBanking Trading Platform — OOP Design Implementation
 
-> \[!IMPORTANT\] This is the **third project assignment** for the
-> Object-Oriented Programming (OOP) course (2nd year, 1st semester). -
-> This implementation was developed as a **personal re-implementation**
-> for self-educational purposes after the official academic evaluation
-> period. - The project was developed entirely with **AI assistance
-> throughout the entire solving process**, focusing on understanding
-> advanced Java design patterns and system architecture.
+> [!IMPORTANT]
+> This is the **third project assignment** for the Object-Oriented Programming (OOP) course (2nd year, 1st semester).
+> This implementation was developed as a **personal re-implementation** for self-educational purposes after the official academic evaluation period.
+> The project was developed entirely with **AI assistance throughout the entire development process**, focusing on understanding advanced Java design patterns and system architecture.
 
-------------------------------------------------------------------------
+---
 
-## ⚠️ Academic Transparency & AI Disclosure
+## Academic Transparency & AI Disclosure
 
-This repository contains a personal study project based on a university
-assignment.
+This repository contains a personal study project based on a university assignment.
 
--   **Status:** This code was developed **after the academic grading
-    period ended**. It was not submitted for academic credit during the
-    active course.
--   **AI Usage:** This implementation was developed with **continuous AI
-    assistance** across all stages of development:
-    -   Designing the overall architecture
-    -   Implementing every class
-    -   Applying and refining design patterns
-    -   Debugging failing test cases
-    -   Optimizing business logic
-    -   Refactoring for clean separation of responsibilities
--   **Learning Approach:** The educational value came from:
-    -   Understanding how each design pattern was applied
-    -   Analyzing the interaction between classes
-    -   Iteratively debugging complex financial logic
-    -   Studying how object-oriented principles scale in a medium-sized
-        system
--   **Academic Integrity:** This repository serves strictly as a
-    **portfolio and learning artifact**, demonstrating applied knowledge
-    of OOP concepts, software architecture, and design patterns.
+**Status:** This code was developed after the academic grading period concluded. It was not submitted for academic credit during the active course.
 
-------------------------------------------------------------------------
+**AI Usage:** This implementation was developed with continuous AI assistance across all stages of development, including:
 
-# 🏦 Project Overview
+- Designing the overall system architecture
+- Implementing every class and module
+- Applying and refining design patterns
+- Debugging failing test cases
+- Optimizing business logic
+- Refactoring for clean separation of responsibilities
 
-This project simulates a simplified **eBanking and Trading System** that
-supports:
+**Learning Approach:** The educational value was derived from:
 
--   User management
--   Multi-currency accounts
--   Currency exchange with commission rules
--   Stock purchasing
--   SMA-based stock recommendations
--   Premium subscription logic with financial benefits
--   Command-driven architecture
+- Understanding how each design pattern was applied in context
+- Analyzing the interactions between classes and components
+- Iteratively debugging complex financial logic
+- Studying how object-oriented principles scale within a medium-sized system
 
-The system reads commands from input files and produces structured JSON
-output.
+**Academic Integrity:** This repository serves strictly as a portfolio and learning artifact, demonstrating applied knowledge of OOP concepts, software architecture, and design patterns.
 
-------------------------------------------------------------------------
+---
 
-# 🧠 Design Patterns Used
+## Project Overview
 
-## 1️⃣ Singleton Pattern -- `BankSystem`
+This project simulates a simplified **eBanking and Trading System** that supports the following capabilities:
 
-Ensures only one central banking system instance exists.
+- User management
+- Multi-currency accounts
+- Currency exchange with configurable commission rules
+- Stock purchasing
+- SMA-based stock recommendations
+- Premium subscription logic with associated financial benefits
+- A command-driven architecture for structured input processing
 
-## 2️⃣ Command Pattern
+The system reads commands from input files and produces structured JSON output.
 
-Each action is encapsulated into its own class implementing:
+---
 
-``` java
+## Design Patterns
+
+### 1. Singleton Pattern — `BankSystem`
+
+Ensures that only a single central banking system instance exists throughout the application lifecycle.
+
+### 2. Command Pattern
+
+Each user action is encapsulated into its own dedicated class implementing the following interface:
+
+```java
 public interface Command {
     void execute();
 }
 ```
 
-Examples: - CreateUserCommand - ExchangeMoneyCommand -
-BuyStocksCommand - RecommendStocksCommand - BuyPremiumCommand
+Command implementations include:
 
-## 3️⃣ Factory Pattern -- `CommandFactory`
+- `CreateUserCommand`
+- `ExchangeMoneyCommand`
+- `BuyStocksCommand`
+- `RecommendStocksCommand`
+- `BuyPremiumCommand`
 
-Responsible for interpreting input lines and instantiating the correct
-command.
+### 3. Factory Pattern — `CommandFactory`
 
-## 4️⃣ Strategy Pattern -- Commission Logic
+Responsible for interpreting input lines and instantiating the appropriate command object at runtime.
 
-``` java
+### 4. Strategy Pattern — Commission Logic
+
+```java
 public interface CommissionStrategy {
     double applyCommission(double amount, double sourceBalance);
 }
 ```
 
-Implementations: - StandardCommission (1% conditionally) -
-PremiumCommission (0%)
+Implementations:
 
-Allows dynamic runtime commission behavior.
+- `StandardCommission` — Applies a 1% commission conditionally
+- `PremiumCommission` — Applies 0% commission
 
-------------------------------------------------------------------------
+This design enables dynamic, runtime-configurable commission behaviour.
 
-# 💰 Financial Logic
+---
 
-## Currency Exchange
+## Financial Logic
 
--   Uses exchange matrix loaded from CSV.
--   Commission applied using Strategy pattern.
--   Premium users pay no commission.
+### Currency Exchange
 
-## Stock Recommendation Algorithm
+- Utilises an exchange rate matrix loaded from a CSV file
+- Commission is applied using the Strategy pattern
+- Premium users are exempt from commission charges
 
-Implements simplified SMA crossover:
+### Stock Recommendation Algorithm
 
-1.  Calculate SMA over last 5 days
-2.  Calculate SMA over last 10 days
-3.  If SMA_5 \> SMA_10 → stock recommended
+Implements a simplified SMA (Simple Moving Average) crossover strategy:
 
-------------------------------------------------------------------------
+1. Calculate the SMA over the last 5 trading days
+2. Calculate the SMA over the last 10 trading days
+3. If `SMA_5 > SMA_10`, the stock is marked as recommended
 
-# ⭐ Premium Option (Bonus Feature)
+---
 
-## BUY PREMIUM `<email>`{=html}
+## Premium Subscription
 
-Rules: - Costs 100 USD (one-time) - Requires sufficient balance - No
-output on success - Proper error handling
+**Command:** `BUY PREMIUM <email>`
 
-Benefits: - No exchange commission - 5% discount on recommended stocks
+**Rules:**
 
-------------------------------------------------------------------------
+- One-time cost of 100 USD
+- Requires sufficient account balance
+- No output is produced on success
+- Includes proper error handling for edge cases
 
-# 📂 Core Data Structures
+**Benefits:**
 
--   HashMap\<String, User\>
--   HashMap\<String, Map\<String, Double\>\>
--   HashMap\<String, List`<Double>`{=html}\>
--   HashSet`<String>`{=html}
+- No commission on currency exchange
+- 5% discount on recommended stock purchases
 
-------------------------------------------------------------------------
+---
 
-# 🧩 OOP Principles Applied
+## Core Data Structures
 
--   Encapsulation
--   Abstraction
--   Inheritance
--   Polymorphism
+| Structure | Purpose |
+|---|---|
+| `HashMap<String, User>` | User registry |
+| `HashMap<String, Map<String, Double>>` | Multi-currency account balances |
+| `HashMap<String, List<Double>>` | Historical stock price data |
+| `HashSet<String>` | Premium user tracking |
 
-------------------------------------------------------------------------
+---
 
-# 🚀 Running the Project
+## OOP Principles Applied
 
-This project uses Gradle.
+- **Encapsulation** — Internal state is protected and accessed through well-defined interfaces
+- **Abstraction** — Complex logic is hidden behind clean, purpose-driven abstractions
+- **Inheritance** — Shared behaviour is promoted through class hierarchies where appropriate
+- **Polymorphism** — Runtime behaviour varies through interface implementations and method overriding
 
-Run tests:
+---
 
-``` bash
+## Running the Project
+
+This project uses **Gradle** as its build system.
+
+**Linux / macOS:**
+
+```bash
 ./gradlew clean test
 ```
 
-Windows:
+**Windows:**
 
-``` bash
+```bash
 gradlew.bat clean test
 ```
 
-------------------------------------------------------------------------
+---
 
-# 📌 Recommended GitHub Repository Name
+## License
 
-ebanking-trading-system-oop
+This project is licensed under the **MIT License**.
 
-Alternative options: - oop-ebanking-platform -
-financial-system-oop-design - ebanking-sma-trading-platform
+---
 
-------------------------------------------------------------------------
-
-# 📜 License
-
-MIT License.
-
-------------------------------------------------------------------------
-
-⭐ Built as a structured AI-assisted learning project.
+*Built as a structured, AI-assisted learning project.*
