@@ -2,8 +2,8 @@
 
 > [!IMPORTANT]
 > This is the **third project assignment** for the Object-Oriented Programming (OOP) course (2nd year, 1st semester).
-> This implementation was developed as a **personal re-implementation** for self-educational purposes after the official academic evaluation period.
-> The project was developed entirely with **AI assistance throughout the entire development process**, focusing on understanding advanced Java design patterns and system architecture.
+- This implementation was developed as a **personal re-implementation** for self-educational purposes after the official academic evaluation period.
+- The project was developed entirely with **AI assistance throughout the entire development process**, focusing on understanding advanced Java design patterns and system architecture.
 
 ---
 
