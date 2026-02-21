@@ -143,7 +143,7 @@ Implements a simplified SMA (Simple Moving Average) crossover strategy:
 | `HashMap<String, User>` | User registry |
 | `HashMap<String, Map<String, Double>>` | Multi-currency account balances |
 | `HashMap<String, List<Double>>` | Historical stock price data |
-| `HashSet<String>` | Premium user tracking |
+| `HashSet<String>` | Storage of SMA-based recommended stocks |
 
 ---
 
