@@ -72,6 +72,12 @@ Command implementations include:
 - `BuyStocksCommand`
 - `RecommendStocksCommand`
 - `BuyPremiumCommand`
+- `AddAccountCommand`
+- `AddFriendCommand`
+- `AddMoneyCommand`
+- `TransferMoneyCommand`
+- `ListPortfolioCommand`
+- `ListUserCommand`
 
 ### 3. Factory Pattern — `CommandFactory`
 
