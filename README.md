@@ -1,9 +1,6 @@
 # eBanking Trading Platform — OOP Design Implementation
 
-> [!IMPORTANT]
-> This is the **third project assignment** for the Object-Oriented Programming (OOP) course (2nd year, 1st semester).
-- This implementation was developed as a **personal re-implementation** for self-educational purposes after the official academic evaluation period.
-- The project was developed entirely with **AI assistance throughout the development process**, focusing on understanding advanced Java design patterns and system architecture.
+A Java simulation of a simplified eBanking and trading system, built around four classical OOP design patterns. The system processes commands from input files and produces structured JSON output.
 
 ---
 
@@ -174,10 +171,12 @@ gradlew.bat clean test
 
 ---
 
-## License
+## Development Notes
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This is a 2nd-year OOP course assignment, re-implemented after the grading period for self-study purposes, with continuous AI assistance throughout. The focus was on understanding how design patterns interact within a medium-sized Java system rather than on novel contributions.
 
 ---
 
-*Built as a structured, AI-assisted learning project.*
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
