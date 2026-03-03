@@ -173,7 +173,7 @@ gradlew.bat clean test
 
 ## Development Notes
 
-This is a 2nd-year OOP course assignment, re-implemented after the grading period for self-study purposes, with continuous AI assistance throughout. The focus was on understanding how design patterns interact within a medium-sized Java system rather than on novel contributions.
+This is a 2nd-year OOP course assignment, re-implemented after the grading period for self-study purposes, with continuous AI assistance throughout the process. The focus was on understanding how design patterns interact within a medium-sized Java system rather than on novel contributions.
 
 ---
 
